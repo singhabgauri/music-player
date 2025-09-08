@@ -12,7 +12,6 @@ function formatTime(seconds) {
 async function getSongs(folder) {
     currFolder = folder;
 
-    // fetch info.json
     let response = await fetch(`/${folder}/info.json`);
     if (!response.ok) {
         console.error("Failed to load info.json for", folder);
@@ -20,6 +19,12 @@ async function getSongs(folder) {
     }
 
     let albumInfo = await response.json();
+
+    if (!albumInfo.tracks || albumInfo.tracks.length === 0) {
+        console.warn("No tracks found in info.json for", folder);
+        return [];
+    }
+
     songs = albumInfo.tracks.map(track => `/${folder}/${track}`);
 
     // render playlist
@@ -54,7 +59,10 @@ async function getSongs(folder) {
 }
 
 const playMusic = (track, pause = false) => {
-    if (!track) return;
+    if (!track) {
+        console.warn("Tried to play an undefined track");
+        return;
+    }
 
     currentSong.src = track;
     let songName = track.split("/").pop().replace(".mp3", "");
@@ -74,8 +82,8 @@ const playMusic = (track, pause = false) => {
 async function displayAlbums() {
     let cardContainer = document.querySelector(".cardContainer");
 
-    // manually list available albums (subfolders of songs/)
-    let albums = ["cs"]; // add more here when you create new albums
+    // manually list available albums
+    let albums = ["cs", "ncs", "ncs-2"];
 
     for (let folder of albums) {
         let response = await fetch(`/songs/${folder}/info.json`);
@@ -108,6 +116,8 @@ async function displayAlbums() {
             if (songs.length > 0) {
                 document.querySelector(".song-bar").style.display = "block";
                 playMusic(songs[0], true);
+            } else {
+                console.warn("Album has no songs:", folder);
             }
         });
     });
@@ -118,8 +128,11 @@ async function main() {
 
     // load default album
     songs = await getSongs("songs/cs");
+
     if (songs.length > 0) {
         playMusic(songs[0], true);
+    } else {
+        console.warn("Default album has no songs");
     }
 
     displayAlbums();
@@ -137,6 +150,7 @@ async function main() {
 
     // progress bar
     currentSong.addEventListener("timeupdate", () => {
+        if (!currentSong.duration) return;
         document.querySelector(".song-time").innerHTML =
             `${formatTime(currentSong.currentTime)}/${formatTime(currentSong.duration)}`;
         document.querySelector(".circle").style.left =
@@ -147,24 +161,32 @@ async function main() {
 
     // seek
     document.querySelector(".seek-bar").addEventListener("click", e => {
+        if (!currentSong.duration) return;
         let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
         document.querySelector(".circle").style.left = percent + "%";
         currentSong.currentTime = (currentSong.duration * percent) / 100;
     });
 
-    // prev/next
+    // prev
     previous.addEventListener("click", () => {
         let currentSongName = currentSong.src.split("/").pop();
         let index = songs.findIndex(song => song.includes(currentSongName));
-        if (index - 1 >= 0) playMusic(songs[index - 1]);
+        if (index > 0) {
+            playMusic(songs[index - 1]);
+        } else {
+            console.warn("Already at first song");
+            currentSong.currentTime = 0;
+        }
     });
 
+    // next
     next.addEventListener("click", () => {
         let currentSongName = currentSong.src.split("/").pop();
         let index = songs.findIndex(song => song.includes(currentSongName));
         if (index + 1 < songs.length) {
             playMusic(songs[index + 1]);
         } else {
+            console.warn("End of playlist");
             currentSong.pause();
             currentSong.currentTime = 0;
             play.src = "play.svg";
