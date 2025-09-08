@@ -2,291 +2,178 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify - Web Player: Music for everyone</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="utility.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify - Web Player: Music for everyone</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/utility.css">
 </head>
 
 <body>
-    <div class="navbar flex items-center">
-        <!-- <div class="hamburgerCont flex justify-center items-center">
-            <div class="hamburger">
-                <img class="invert" src="hamburger.svg" alt="hamburger-logo">
-            </div>
-            <div class="cross-icon">
-                <img class="invert" src="cross.svg" alt="cross-icon">
-            </div>
-
-        </div> -->
-
-        <div class="logo flex m-1">
-            <img class="invert" src="logo.svg" alt="spotify-logo">
-        </div>
-
-        <div class="search-bar flex items-center justify-center">
-            <div class="home items-center ">
-                <button><img  src="home.svg" alt="home-logo"></button>
-            </div>
-            <div class="mid-box flex items-center " tabindex="0">
-                <div class="search-icon">
-                    <img src="search-icon.svg" alt="search-logo">
-                </div>
-                <div class="input">
-                    <input class="search-placeholder" type="search" name="search-playlist" id="s1"
-                        placeholder="What do you want to play?">
-                </div>
-                <div class="browse">
-                    <img class="invert" src="browse.svg" alt="browse-logo">
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="nav-right flex items-center justify-center">
-            <button class="sign-up">Sign Up</button>
-            <button class="log-in">Log in</button>
-        </div>
-
-
-
-
+  <div class="navbar flex items-center">
+    <div class="logo flex m-1">
+      <img class="invert" src="/logo.svg" alt="spotify-logo">
     </div>
 
-    <div class="big-container">
-        <div class="container flex ">
-            <div class="right">
-                <div class="library flex items-center">
-                    <button class="btn flex items-center"><img class="invert " src="your-library.svg" alt="">Your
-                        Library</button>
-                    <a href="http://"><img class="invert" src="plus.svg" alt=""></a>
-                </div>
-                <div class="right-container">
-                    <div class="playlist">
-                        <div class="marker-1">
-                            <div class="bold">
-                                Create your first playlist
-                            </div>
-                            <div class="unbold">
-                                It's easy, we will help you
-                            </div>
-                        </div>
-
-                        <button class="btn-plst">Create Playlist</button>
-
-                    </div>
-
-                    <div class="podcast">
-                        <div class="marker-1">
-                            <div class="bold">
-                                Let's find some podcast to follow
-                            </div>
-                            <div class="unbold">
-                                We'll keep you updated on new episodes
-                            </div>
-                        </div>
-
-                        <button class="btn-plst">Browse Podcast</button>
-
-                    </div>
-
-                </div>
-
-                <div class="footer">
-                    <div class="link-container flex">
-                        <div class="f1 f11">Legal</div>
-                        <div class="f2 f11">Safety and Privacy Center</div>
-                        <div class="f3 f11">Privacy Policy</div>
-                        <div class="f4 f11">Cookies</div>
-                        <div class="f5 f11">About Ads</div>
-                        <div class="f6 f11">Accessibility</div>
-                        <div class="f7 f11">Cookies</div>
-                    </div>
-
-                    <div class="footer-btn">
-                        <button class="btn-footer flex justify-center items-center"><img class="invert" src="globe.svg"
-                                alt="globe-logo">English</button>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-
-            <div class="left">
-                <div class="heading flex items-center">
-                    <h1>Popular artists</h1>
-                    <p class="show">Show all</p>
-                </div>
-                <div class="cardContainer flex">
-                    <!-- <div data-folder="cs" class="card c1">
-                        <div class="play">
-                            <button class="play-btn"><img src="play.svg" alt=""></button>
-                        </div>
-                        <div class="card-img">
-                            <img src="https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca" alt="pritam-logo">
-                        </div>
-                        <div class="a1">
-                            <p class="a-name">Pritam</p>
-                        </div>
-                        <div class="a2">
-                            <p class="a-prof">Artist</p>
-                        </div>
-    
-                    </div>
-    
-                    <div data-folder="ncs" class="card ">
-                        <div class="play">
-                            <button class="play-btn"><img src="play.svg" alt=""></button>
-                        </div>
-                        <div class="card-img">
-                            <img src="https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca" alt="pritam-logo">
-                        </div>
-                        <div class="a1">
-                            <p class="a-name">Pritam</p>
-                        </div>
-                        <div class="a2">
-                            <p class="a-prof">Artist</p>
-                        </div>
-    
-                    </div> -->
-
-
-                </div>
-
-                
-
-                <div class="song-bar flex items-center">
-                    <ul>
-                        <!-- <li>
-                            <img class="invert" src="music.svg" alt="">
-                            <div class="song-info">
-                                <div class="song-name">
-                                    song name
-                                </div>
-    
-                                <div class="song-artist">
-                                    song-artist
-                                </div>
-                            </div>
-                            <div class="play-now">
-                                
-                                <img class="invert" src="play.svg" alt="">
-    
-                            </div>
-                            
-    
-                        </li> -->
-                    </ul>
-                </div>
-
-                <div class="footer-div flex">
-                    <div class="company">
-                        <ul>
-                            <li class="first-line">Company</li>
-                            <li>About</li>
-                            <li>Jobs</li>
-                            <li>For the Record</li>
-                        </ul>
-                    </div>
-                    <div class="communities">
-                        <ul>
-                            <li class="first-line">Communities</li>
-                            <li>Investors</li>
-                            <li>Jobs</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="useful-links">
-                        <ul>
-                            <li class="first-line">Useful Links</li>
-                            <li>Support</li>
-                            <li>Free Mobile App</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="spotify-plans">
-                        <ul>
-                            <li class="first-line">Spotify Plans</li>
-                            <li>Premium Duo</li>
-                            <li>Premium Family</li>
-                            <li>Spotify Free</li>
-                        </ul>
-                    </div>
-                    <div class="footer-box flex">
-                        <div class="image-1 handles sizes flex justify-center items-center">
-                            <img src="insta.svg" alt="">
-                        </div>
-                        <div class="image-2 handles sizes flex justify-center items-center">
-                            <img src="twitter.svg" alt="">
-                        </div>
-                        <div class="image-3 handles sizes flex justify-center items-center">
-                            <img src="facebook.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-ends">
-                    <hr>
-                    <p class="footer-end">© 2024 Spotify AB</p>
-
-                </div>
-
-                
-                
-
-            </div>
-
-        </div> 
-        <div class="playbar  ">
-            <div class="playbar-buttons flex justify-center">
-                <div class="above-bar flex items-center">
-                    <div class="songinfo"></div>
-                    <div class="song-buttons flex">
-
-                        <img id="previous" class="green-btn invert" src="previous.svg" alt="">
-                        <img id="play" class="green-btn invert" src="play.svg" alt="">
-                        <img id="next" class="green-btn invert" src="next.svg" alt="">
-                    </div>
-                    <div class="song-time">
-
-                    </div>
-                    <div class="volume flex items-center">
-                        <img src="volume.svg" class="invert" alt="">
-                        <div class="range">
-                            <input id ="myinput"type="range" name="volume" id="">
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-            <div class="seek flex justify-center">
-                <div class="seek-bar">
-                    <div class="progress-fill"></div>
-                    <div class="circle"></div>
-                </div>
-
-            </div>
+    <div class="search-bar flex items-center justify-center">
+      <div class="home items-center">
+        <button><img src="/home.svg" alt="home-logo"></button>
+      </div>
+      <div class="mid-box flex items-center" tabindex="0">
+        <div class="search-icon">
+          <img src="/search-icon.svg" alt="search-logo">
         </div>
-
-
-
+        <div class="input">
+          <input class="search-placeholder" type="search" name="search-playlist" id="s1"
+            placeholder="What do you want to play?">
+        </div>
+        <div class="browse">
+          <img class="invert" src="/browse.svg" alt="browse-logo">
+        </div>
+      </div>
     </div>
 
+    <div class="nav-right flex items-center justify-center">
+      <button class="sign-up">Sign Up</button>
+      <button class="log-in">Log in</button>
+    </div>
+  </div>
 
+  <div class="big-container">
+    <div class="container flex ">
+      <div class="right">
+        <div class="library flex items-center">
+          <button class="btn flex items-center"><img class="invert " src="/your-library.svg" alt="">Your
+            Library</button>
+          <a href="#"><img class="invert" src="/plus.svg" alt=""></a>
+        </div>
+        <div class="right-container">
+          <div class="playlist">
+            <div class="marker-1">
+              <div class="bold">Create your first playlist</div>
+              <div class="unbold">It's easy, we will help you</div>
+            </div>
+            <button class="btn-plst">Create Playlist</button>
+          </div>
 
+          <div class="podcast">
+            <div class="marker-1">
+              <div class="bold">Let's find some podcast to follow</div>
+              <div class="unbold">We'll keep you updated on new episodes</div>
+            </div>
+            <button class="btn-plst">Browse Podcast</button>
+          </div>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="footer">
+          <div class="link-container flex">
+            <div class="f1 f11">Legal</div>
+            <div class="f2 f11">Safety and Privacy Center</div>
+            <div class="f3 f11">Privacy Policy</div>
+            <div class="f4 f11">Cookies</div>
+            <div class="f5 f11">About Ads</div>
+            <div class="f6 f11">Accessibility</div>
+            <div class="f7 f11">Cookies</div>
+          </div>
 
+          <div class="footer-btn">
+            <button class="btn-footer flex justify-center items-center"><img class="invert" src="/globe.svg"
+                alt="globe-logo">English</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="left">
+        <div class="heading flex items-center">
+          <h1>Popular artists</h1>
+          <p class="show">Show all</p>
+        </div>
+        <div class="cardContainer flex"></div>
+
+        <div class="song-bar flex items-center">
+          <ul></ul>
+        </div>
+
+        <div class="footer-div flex">
+          <div class="company">
+            <ul>
+              <li class="first-line">Company</li>
+              <li>About</li>
+              <li>Jobs</li>
+              <li>For the Record</li>
+            </ul>
+          </div>
+          <div class="communities">
+            <ul>
+              <li class="first-line">Communities</li>
+              <li>Investors</li>
+              <li>Jobs</li>
+            </ul>
+          </div>
+          <div class="useful-links">
+            <ul>
+              <li class="first-line">Useful Links</li>
+              <li>Support</li>
+              <li>Free Mobile App</li>
+            </ul>
+          </div>
+          <div class="spotify-plans">
+            <ul>
+              <li class="first-line">Spotify Plans</li>
+              <li>Premium Duo</li>
+              <li>Premium Family</li>
+              <li>Spotify Free</li>
+            </ul>
+          </div>
+          <div class="footer-box flex">
+            <div class="image-1 handles sizes flex justify-center items-center">
+              <img src="/insta.svg" alt="">
+            </div>
+            <div class="image-2 handles sizes flex justify-center items-center">
+              <img src="/twitter.svg" alt="">
+            </div>
+            <div class="image-3 handles sizes flex justify-center items-center">
+              <img src="/facebook.svg" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-ends">
+          <hr>
+          <p class="footer-end">© 2024 Spotify AB</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="playbar">
+      <div class="playbar-buttons flex justify-center">
+        <div class="above-bar flex items-center">
+          <div class="songinfo"></div>
+          <div class="song-buttons flex">
+            <img id="previous" class="green-btn invert" src="/previous.svg" alt="">
+            <img id="play" class="green-btn invert" src="/play.svg" alt="">
+            <img id="next" class="green-btn invert" src="/next.svg" alt="">
+          </div>
+          <div class="song-time"></div>
+          <div class="volume flex items-center">
+            <img src="/volume.svg" class="invert" alt="">
+            <div class="range">
+              <input id="myinput" type="range" name="volume">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seek flex justify-center">
+        <div class="seek-bar">
+          <div class="progress-fill"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
 </body>
-
 </html>
