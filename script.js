@@ -14,7 +14,7 @@ function formatTime(seconds) {
 async function getSongs(folder) {
     currFolder = folder;
 
-    // Correct URL for info.json (no /public prefix)
+    // Always prefix with /songs (no duplicate /songs/songs)
     let folderPath = folder.startsWith("/songs") ? folder : `/songs/${folder}`;
     let response = await fetch(`${folderPath}/info.json`);
 
@@ -99,7 +99,7 @@ async function displayAlbums() {
         let info = await response.json();
 
         cardContainer.innerHTML += `
-            <div data-folder="songs/${folder}" class="card">
+            <div data-folder="${folder}" class="card">
                 <div class="play">
                     <button class="play-btn"><img src="play.svg" alt=""></button>
                 </div>
@@ -135,7 +135,7 @@ async function main() {
     document.querySelector(".song-bar").style.display = "none";
 
     // Load default album (fixed path)
-    songs = await getSongs("songs/cs");
+    songs = await getSongs("cs");
 
     if (songs.length > 0) {
         playMusic(songs[0], true);
