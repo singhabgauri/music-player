@@ -14,8 +14,8 @@ function formatTime(seconds) {
 async function getSongs(folder) {
     currFolder = folder;
 
-    // Build correct URL for info.json
-    let folderPath = folder.startsWith("/public") ? folder : `/public/${folder}`;
+    // Correct URL for info.json (no /public prefix)
+    let folderPath = folder.startsWith("/songs") ? folder : `/songs/${folder}`;
     let response = await fetch(`${folderPath}/info.json`);
 
     if (!response.ok) {
@@ -92,7 +92,7 @@ async function displayAlbums() {
     let albums = ["cs", "ncs", "ncs-2"];
 
     for (let folder of albums) {
-        let folderPath = `/public/songs/${folder}`;
+        let folderPath = `/songs/${folder}`;
         let response = await fetch(`${folderPath}/info.json`);
         if (!response.ok) continue;
 
